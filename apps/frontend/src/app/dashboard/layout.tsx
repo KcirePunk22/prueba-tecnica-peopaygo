@@ -6,9 +6,9 @@ import Sidebar from './ui/Sidebar'
 export default function DashboardPage({ children }: { children: React.ReactNode }) {
 	const { data: session } = useSession()
 
-	// if (!session) {
-	// 	redirect('/auth/login')
-	// }
+	if (!session) {
+		redirect('/auth/login')
+	}
 
 	return (
 		<main className='flex'>
