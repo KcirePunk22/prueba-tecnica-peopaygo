@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,92 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DB_URL")
+}
+
+model Payroll {
+  id            Int        @id @default(autoincrement())
+  amount        Float
+  startDate     DateTime?
+  endDate       DateTime?
+  paymentDate   DateTime?
+  hours         Int?
+  notes         String?
+  state         PayrollState
+  client        Client?     @relation(fields: [idClient], references: [id])
+  idClient      Int
+  typePayment   PaymentType
+  salary        Salary?     @relation(fields: [idSalary], references: [id])
+  idSalary      Int
+}
+
+model Salary {
+  id Int @id @default(autoincrement())
+  amount Int
+  typePayment PaymentType
+  country String
+  city String
+  payrolls Payroll[]
+}
+
+model Client {
+  id            Int             @id @default(autoincrement())
+  name          String
+  lastName      String
+  email         String
+  user          User            @relation(fields: [idUser], references: [id], onDelete: Cascade) 
+  idUser        Int             @unique
+  payrolls      Payroll[]
+  companies     CompanyEmployee[]
+}
+
+
+model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String
+  lastName  String
+  email     String
+  user      User     @relation(fields: [idUser], references: [id])
+  idUser    Int      @unique
+}
+
+model Rol {
+  id        Int      @id @default(autoincrement())
+  name      String
+  description String?
+  users        User[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  password  String
+  rol       Rol      @relation(fields: [idRol], references: [id])
+  idRol     Int
+  clients   Client[]            // Relación sin la opción onDelete
+  employees Employee[]
+}
+
+model Company {
+  id    Int     @id @default(autoincrement())
+  name  String
+  code  String
+  companies     CompanyEmployee[]
+}
+
+model CompanyEmployee {
+  id         Int             @id @default(autoincrement())
+  company    Company         @relation(fields: [companyId], references: [id])
+  companyId  Int
+  client     Client          @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  clientId   Int             @unique
+}
+
+enum PayrollState {
+  CREADO
+  RECHAZADO
+  APROBADO
+}
+
+enum PaymentType {
+  HORAS
+  CHEQUE
 }

@@ -4,6 +4,7 @@
 ---
 
 # PLEASE READ BEFORE YOU BEGIN
+
 We would like you to keep the following in mind before beginning this assessment:
 
 1. If you do **not** finish this assessment by the due date, please submit whatever work you have done!
@@ -52,7 +53,7 @@ Currently, customers can only report weekly payroll.
 
 #### Your application must:
 
-- [ ] Perform client-side and server-side validation
+- [x] Perform client-side and server-side validation
 - [ ] Display validation errors on form fields as applicable
 - [ ] Feature proper error handling for expected and unexpected errors
 - [ ] Cover at least 50% of all backend code
@@ -87,10 +88,10 @@ Currently, customers can only report weekly payroll.
 
 All employees in the state of Florida must be paid the minimum wage. Here is a reference based on the employee's pay type:
 
-| Pay Type | Amount           |  
-|----------|------------------|  
-| Hourly   | 12.00 an hour    |  
-| Salary   | 480.00 per check |  
+| Pay Type | Amount           |
+| -------- | ---------------- |
+| Hourly   | 12.00 an hour    |
+| Salary   | 480.00 per check |
 
 #### Bonus Items
 
@@ -105,7 +106,8 @@ The higher the code coverage the better!
 Leverage advanced NestJS decorators like OpenAPI / Swagger documentation decorators.
 
 Use Prisma as your ORM of choice.
-___  
+
+---
 
 ## Helpful Links
 
@@ -122,32 +124,35 @@ Keep in mind, this is a [Nx Monorepo](https://nx.dev/getting-started/intro), so 
 
 1. Install all dependencies:
 
-    ```bash  
-    yarn install  
-    ```  
+   ```bash
+   yarn install
+   ```
+
 2. Install Nx CLI
 
-    ```bash  
-    npm i --g nx@latest  
-    ```  
+   ```bash
+   npm i --g nx@latest
+   ```
+
 3. Run the following commands depending on what you want to do:
+
    ```bash
    # run the API and frontend development servers
    yarn api:dev
    yarn frontend:dev
-   
+
    # build the API and frontend
    yarn api:build
    yarn frontend:build
-   
+
    # run tests
    yarn api:test
    yarn frontend:test
-   
+
    # run tests with coverage
    yarn api:test-cov
    yarn frontend:test-cov
-   
+
    #run e2e tests
    yarn api:e2e
    yarn frontend:e2e
@@ -202,7 +207,7 @@ Actualmente, los clientes solo pueden informar la nómina semanal.
 
 #### Los clientes deben poder:
 
-- [ ] Autenticación mediante correo electrónico/contraseña estándar
+- [x] Autenticación mediante correo electrónico/contraseña estándar
 - [ ] Gestionar (Crear/Leer/Actualizar/Borrar) sus empleados.
 - [ ] Todos los empleados deben tener un nombre, un tipo de pago y el monto del pago (sea por hora o salario).
 - [ ] Las tarifas salariales deben validarse con base en el [Salario Mínimo](#Salario-Mínimo).
@@ -229,7 +234,7 @@ Actualmente, los clientes solo pueden informar la nómina semanal.
 Todos los empleados del estado de Florida deben cobrar el salario mínimo. Aquí hay una referencia basada en el tipo de pago del empleado:
 
 | Tipo de pago | Importe           |
-|--------------|-------------------|
+| ------------ | ----------------- |
 | Por hora     | 12,00 la hora     |
 | Salario      | 480,00 por cheque |
 
@@ -247,7 +252,7 @@ Aprovecha los decoradores avanzados de NestJS como los decoradores de documentac
 
 Utilice Prisma como su ORM de elección.
 
-___
+---
 
 ## Enlaces útiles
 
@@ -280,19 +285,19 @@ Ten en cuenta que esto es un Nx [Monorepo](https://nx.dev/getting-started/intro)
    # run the API and frontend development servers
    yarn api:dev
    yarn frontend:dev
-   
+
    # build the API and frontend
    yarn api:build
    yarn frontend:build
-   
+
    # run tests
    yarn api:test
    yarn frontend:test
-   
+
    # run tests with coverage
    yarn api:test-cov
    yarn frontend:test-cov
-   
+
    #run e2e tests
    yarn api:e2e
    yarn frontend:e2e
