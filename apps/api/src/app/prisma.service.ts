@@ -70,7 +70,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 		if (!adminEmployee) {
 			const newUser = await this.user.create({
 				data: {
-					password: '$2b$10$O76nrllSg4S6Nr0yTib3guUo/KtwczBoy0m/k7pYCJSiIJxWSKrmK',
+					password: '$2b$10$Ie/PKBt7qdvOa7bCfZeNIe1EAUYiZ0RP69oAWLQtxUI8HWbZhC1CS',
 					rol: {
 						connect: {
 							id: 1,
